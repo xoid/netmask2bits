@@ -1,0 +1,1 @@
+netmask2bits() { I=0; B=0; M=$((256*256*256)); IFS=$'.'; for O in $1; do B=$((B+255-O)); B=$((B*M)); M=$((M/256)); done; B=$((B+1));echo B $B; while [ $B -gt 1 ]; do B=$(($B/2)); I=$(($I+1)); echo I $I B $B; done; echo /$((32-$I)); }
